@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandila ki Awaaz — Misrikh Lok Sabha</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Rajdhani:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C8102E;
+    --green: #046A38;
+    --saffron: #FF6B00;
+    --cream: #FFF8EE;
+    --dark: #1A1008;
+    --gold: #D4A017;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1A1008 0%, #2d1a0a 50%, #1A1008 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 60px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,107,0,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(200,16,46,0.15) 0%, transparent 60%);
+  }
+
+  /* Ashoka chakra watermark */
+  .chakra-bg {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    animation: spin 60s linear infinite;
+  }
+
+  @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .party-badge {
+    background: var(--red);
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    padding: 6px 20px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: clamp(2.4rem, 8vw, 4.2rem);
+    color: white;
+    text-align: center;
+    line-height: 1.15;
+    position: relative;
+    z-index: 2;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero-name span {
+    color: var(--saffron);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+    animation: fadeDown 1s ease both;
+  }
+
+  .divider-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--saffron), var(--gold));
+    margin: 24px auto;
+    position: relative;
+    z-index: 2;
+    animation: expandWidth 1.2s ease both;
+  }
+
+  @keyframes expandWidth { from { width: 0; } to { width: 80px; } }
+
+  /* Main mudda card in hero */
+  .hero-mudda {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,107,0,0.3);
+    border-left: 4px solid var(--saffron);
+    border-radius: 8px;
+    padding: 24px 28px;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .mudda-number {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--saffron);
+    margin-bottom: 8px;
+  }
+
+  .mudda-text {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 1.4;
+  }
+
+  .mudda-text strong {
+    color: var(--saffron);
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.4s ease both;
+  }
+
+  .scan-hint {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  .scroll-arrow {
+    color: var(--saffron);
+    font-size: 1.6rem;
+    animation: bounce 1.5s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 60px 20px;
+  }
+
+  .section-label {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--saffron);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  /* ── MUDDE SECTION ── */
+  .mudde-section {
+    background: white;
+  }
+
+  .mudde-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .mudda-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+  }
+
+  .mudda-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mudda-card-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .mudda-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .mudda-card-title {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1.3rem;
+    color: white;
+    line-height: 1.3;
+  }
+
+  .mudda-card-body {
+    padding: 20px 24px;
+    background: #fafafa;
+  }
+
+  .mudda-card-body p {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+  }
+
+  .mudda-card-body .promise {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-left: 3px solid;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .card-rozgar .mudda-card-header { background: linear-gradient(135deg, #C8102E, #8B0000); }
+  .card-rozgar .promise { border-color: var(--red); background: #fff0f0; color: var(--red); }
+
+  .card-health .mudda-card-header { background: linear-gradient(135deg, #046A38, #024d28); }
+  .card-health .promise { border-color: var(--green); background: #f0fff5; color: var(--green); }
+
+  .card-sc .mudda-card-header { background: linear-gradient(135deg, #FF6B00, #cc5500); }
+  .card-sc .promise { border-color: var(--saffron); background: #fff5ec; color: #cc5500; }
+
+  .card-youth .mudda-card-header { background: linear-gradient(135deg, #1a6bb5, #0d4a82); }
+  .card-youth .promise { border-color: #1a6bb5; background: #f0f5ff; color: #1a6bb5; }
+
+  /* ── STATS SECTION ── */
+  .stats-section {
+    background: linear-gradient(160deg, #1A1008, #2d1a0a);
+    color: white;
+  }
+
+  .stats-section .section-title { color: white; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 28px 16px;
+    border: 1px solid rgba(255,107,0,0.2);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .stat-number {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: var(--saffron);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  /* ── SUPPORT COUNTER ── */
+  .counter-section {
+    background: var(--cream);
+    text-align: center;
+  }
+
+  .counter-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 16px;
+    padding: 32px 48px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--red);
+    margin-bottom: 32px;
+  }
+
+  .counter-number {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5rem;
+    color: var(--red);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+
+  .counter-label {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  .support-btn {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 16px;
+    padding: 18px 24px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  }
+
+  .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.45); }
+
+  .btn-support {
+    background: var(--red);
+    color: white;
+    box-shadow: 0 4px 20px rgba(200,16,46,0.3);
+  }
+
+  .btn-support:hover { transform: translateY(-2px); }
+
+  .btn-support:active { transform: scale(0.97); }
+
+  /* ── PARICHAY ── */
+  .parichay-section {
+    background: white;
+  }
+
+  .parichay-card {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .parichay-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--saffron), var(--red));
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 8px 30px rgba(255,107,0,0.3);
+  }
+
+  .parichay-name {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+
+  .parichay-seat {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--saffron);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .tag {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .tag-sc { background: #fff0f0; color: var(--red); border: 1px solid #ffcdd2; }
+  .tag-sp { background: #fff5ec; color: var(--saffron); border: 1px solid #ffe0b2; }
+  .tag-local { background: #f0fff5; color: var(--green); border: 1px solid #c8e6c9; }
+
+  .parichay-quote {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    font-style: italic;
+    padding: 20px;
+    border-left: 3px solid var(--saffron);
+    text-align: left;
+    background: #fafafa;
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  footer strong { color: var(--saffron); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--green);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1rem;
+    z-index: 999;
+    transition: transform 0.4s ease;
+    white-space: nowrap;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SP Flag stripe top */
+  .flag-stripe {
+    height: 5px;
+    background: linear-gradient(90deg, #FF0000 33%, #00FF00 33% 66%, #FF0000 66%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="flag-stripe"></div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+
+  <svg class="chakra-bg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="90" stroke="white" stroke-width="2"/>
+    <circle cx="100" cy="100" r="10" stroke="white" stroke-width="2"/>
+    <line x1="100" y1="10" x2="100" y2="190" stroke="white" stroke-width="1"/>
+    <line x1="10" y1="100" x2="190" y2="100" stroke="white" stroke-width="1"/>
+    <line x1="27" y1="27" x2="173" y2="173" stroke="white" stroke-width="1"/>
+    <line x1="173" y1="27" x2="27" y2="173" stroke="white" stroke-width="1"/>
+    <line x1="100" y1="10" x2="164" y2="136" stroke="white" stroke-width="0.5"/>
+    <line x1="100" y1="10" x2="36" y2="136" stroke="white" stroke-width="0.5"/>
+    <line x1="10" y1="100" x2="136" y2="36" stroke="white" stroke-width="0.5"/>
+    <line x1="10" y1="100" x2="136" y2="164" stroke="white" stroke-width="0.5"/>
+    <line x1="190" y1="100" x2="64" y2="36" stroke="white" stroke-width="0.5"/>
+    <line x1="190" y1="100" x2="64" y2="164" stroke="white" stroke-width="0.5"/>
+  </svg>
+
+  <div class="party-badge">⚡ SAMAJWADI PARTY — MISRIKH LOK SABHA</div>
+
+  <h1 class="hero-name">
+    आपकी अपनी<br><span>नीलम गौतम</span>
+  </h1>
+  <p class="hero-subtitle">Sandila · Hardoi · Misrikh</p>
+
+  <div class="divider-line"></div>
+
+  <div class="hero-mudda">
+    <div class="mudda-number">मुद्दा #1</div>
+    <p class="mudda-text">
+      Sandila की <strong>10 factories</strong> में सिर्फ<br>
+      <strong>20% local youth</strong> को नौकरी —<br>
+      यह बदलेगा! ✊
+    </p>
+  </div>
+
+  <div class="hero-cta">
+    <p class="scan-hint">↓ नीचे scroll करें — पूरी बात जानें ↓</p>
+    <div class="scroll-arrow">⬇</div>
+  </div>
+
+</section>
+
+<!-- ══ MUDDE ══ -->
+<section class="mudde-section">
+  <p class="section-label">हमारे मुद्दे</p>
+  <h2 class="section-title">वो 4 बातें जो<br>बदलनी चाहिए</h2>
+
+  <div class="mudde-grid">
+
+    <div class="mudda-card card-rozgar">
+      <div class="mudda-card-header">
+        <div class="mudda-icon">🏭</div>
+        <div class="mudda-card-title">Local Rozgar — Local Youth</div>
+      </div>
+      <div class="mudda-card-body">
+        <p>Sandila industrial area में Pepsi, Haldiram's, Berger Paints, ITC जैसी बड़ी companies हैं — लेकिन jobs बाहर के लोगों को मिलती हैं। Local youth बेरोज़गार है।</p>
+        <div class="promise">✅ हमारा वादा: 70% local youth को नौकरी — law लाएंगे</div>
+      </div>
+    </div>
+
+    <div class="mudda-card card-health">
+      <div class="mudda-card-header">
+        <div class="mudda-icon">🏥</div>
+        <div class="mudda-card-title">सस्ता इलाज — हर घर तक</div>
+      </div>
+      <div class="mudda-card-body">
+        <p>गरीब SC/OBC परिवार बीमारी में कर्ज़ में डूब जाते हैं। सरकारी hospital बदहाल हैं। प्राइवेट इलाज की कोई guarantee नहीं।</p>
+        <div class="promise">✅ हमारा वादा: हर SC बस्ती में free health camp — monthly</div>
+      </div>
+    </div>
+
+    <div class="mudda-card card-sc">
+      <div class="mudda-card-header">
+        <div class="mudda-icon">🙏</div>
+        <div class="mudda-card-title">मान्यवर कांशीराम जी को भारत रत्न दो!</div>
+      </div>
+      <div class="mudda-card-body">
+        <p>करोड़ों दलितों और पिछड़ों को राजनीतिक ताकत देने वाले मान्यवर कांशीराम जी को आज तक भारत रत्न नहीं मिला — यह देश के SC/OBC समाज का अपमान है।</p>
+        <div class="promise">✅ हमारा वादा: संसद में यह मांग उठाएंगे — जब तक मिलेगा नहीं, चैन नहीं लेंगे!</div>
+      </div>
+    </div>
+
+    <div class="mudda-card card-youth">
+      <div class="mudda-card-header">
+        <div class="mudda-icon">🎓</div>
+        <div class="mudda-card-title">Youth का भविष्य</div>
+      </div>
+      <div class="mudda-card-body">
+        <p>ITI और Polytechnic का कोई industrial connection नहीं। Degree है पर नौकरी नहीं। Youth का talent बर्बाद हो रहा है।</p>
+        <div class="promise">✅ हमारा वादा: Factory के पास Skill Centre — guaranteed placement</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<section class="stats-section">
+  <p class="section-label">ज़मीनी सच्चाई</p>
+  <h2 class="section-title" style="color:white">Misrikh की<br>असली तस्वीर</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">33%</div>
+      <div class="stat-label">SC voters — इस seat की असली ताकत</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">33K</div>
+      <div class="stat-label">votes का फर्क था 2024 में — BJP जीती बस इतने से</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">20%</div>
+      <div class="stat-label">local youth को ही मिलती है factory job</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">2029</div>
+      <div class="stat-label">बदलाव का साल — आपके हाथ में है</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COUNTER + SUPPORT ══ -->
+<section class="counter-section">
+  <p class="section-label">जन समर्थन</p>
+  <h2 class="section-title">साथ आइए</h2>
+
+  <div class="counter-box">
+    <div class="counter-number" id="counter">0</div>
+    <div class="counter-label">लोग इस मुहिम से जुड़ चुके हैं</div>
+  </div>
+
+  <a href="https://wa.me/91XXXXXXXXXX?text=मैं%20आपके%20साथ%20हूं%20—%20Misrikh%20बदलेगा!" 
+     class="support-btn btn-whatsapp" target="_blank">
+    💬 WhatsApp पर जुड़ें
+  </a>
+
+  <button class="support-btn btn-support" onclick="addSupport()">
+    ✊ मैं समर्थन करता/करती हूं
+  </button>
+
+</section>
+
+<!-- ══ PARICHAY ══ -->
+<section class="parichay-section">
+  <p class="section-label">परिचय</p>
+  <h2 class="section-title">कौन हैं हम?</h2>
+
+  <div class="parichay-card">
+    <div class="parichay-avatar">👩</div>
+    <h3 class="parichay-name">नीलम गौतम</h3>
+    <p class="parichay-seat">Misrikh Lok Sabha — SP Candidate</p>
+
+    <div class="tag-row">
+      <span class="tag tag-sc">SC — Jatav Samaj</span>
+      <span class="tag tag-sp">Samajwadi Party</span>
+      <span class="tag tag-local">Sandila, Hardoi</span>
+    </div>
+
+    <blockquote class="parichay-quote">
+      "मैं जातव हूं, मेरे पति Arkvanshi हैं — हमने कभी जाति नहीं देखी, बस काम देखा। आप भी सिर्फ काम देखिए।"
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>Authorized by <strong>नीलम गौतम</strong> — Samajwadi Party</p>
+  <p style="margin-top:6px">Misrikh (SC) Lok Sabha Constituency · Hardoi, Uttar Pradesh</p>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">✅ आपका समर्थन दर्ज हो गया! धन्यवाद 🙏</div>
+
+<script>
+  // ── Counter animation ──
+  let count = 1247;
+
+  function animateCounter() {
+    const el = document.getElementById('counter');
+    let start = 0;
+    const duration = 1800;
+    const step = count / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= count) { start = count; clearInterval(timer); }
+      el.textContent = Math.floor(start).toLocaleString('en-IN');
+    }, 16);
+  }
+
+  // ── Support button ──
+  function addSupport() {
+    count++;
+    document.getElementById('counter').textContent = count.toLocaleString('en-IN');
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 120);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.mudda-card').forEach(c => observer.observe(c));
+
+  // ── Counter trigger on scroll ──
+  const counterObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) { animateCounter(); counterObserver.disconnect(); }
+  }, { threshold: 0.5 });
+
+  counterObserver.observe(document.getElementById('counter'));
+</script>
+
+</body>
+</html>
